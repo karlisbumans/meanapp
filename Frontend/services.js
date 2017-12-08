@@ -17,17 +17,19 @@ MeanApp.service('HttpService',['$resource','$http', '$location',function($resour
         
          $http.get('http://localhost:8080/api/user/findUserByUsername/'+ user.username).then(function successCallback(response) {
          this.userlist = response;
-         this.currentUserID = null;
+         this.currentUserUsername = null;
+         this.currentUserName = null;
+         this.currentUserSurname = null;
  
             if (this.userlist.data.length>0 ) {
                  realPassword = userlist.data[0].password;
  
                 if (realPassword == user.password) {
-                     console.log('my user: ',response);
-                     currentUserID = user.username;
+                     currentUserUsername = user.username;
+                     currentUserName = user.name;
+                     currentUserSurname = user.surname;
                      sessionStorage.removeItem('loggedInUser');
                      sessionStorage.setItem('loggedInUser',  JSON.stringify(response.data[0]));
-                     
                      $location.path("/");
                  
                  }
@@ -50,12 +52,12 @@ MeanApp.service('HttpService',['$resource','$http', '$location',function($resour
 MeanApp.service('LoginService',['$resource','$http', '$location',function($resource,$http, $location) {
     this.isUserLoggedIn = function(){
         console.log('LoginService function: isUserLoggedIn');
-        var user = JSON.parse(sessionStorage.getItem('loggedInUser'));
-        if(user !== null){
-            this.currentUserID = user._id;
-
-        console.log('true');
         
+        var user = JSON.parse(sessionStorage.getItem('loggedInUser'));
+        //console.log(user);
+        if(user!==null){
+            this.currentUserID = user._id;
+                
             return true;
         } else {
         console.log('false');

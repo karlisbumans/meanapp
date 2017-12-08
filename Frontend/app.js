@@ -1,10 +1,19 @@
 var MeanApp = angular.module('MeanApp',['ngRoute','ngResource']);
 
-$rootScope.user={id: '', name: '', surname: ''};
-user = sessionStorage.getItem('loggedInUser'); 
-
-if(user!== undefined && user !== null){
-$rootScope.user.id = user.id;
-$rootScope.user.name = user.name;
-$rootScope.user.surname = user.surname;
-}
+MeanApp.controller('MeanAppCtrl',['$scope','$rootScope',function($scope, $rootScope){
+    
+    $rootScope.user={id: '', name: '', surname: ''};
+    
+    console.log('This is main controller!', $rootScope.user);
+    
+    var user = sessionStorage.getItem('loggedInUser');
+    console.log('MainController variable User: ', user);
+    if(user!== undefined && user !== null){
+        $rootScope.user.id = user.id;
+        $rootScope.user.name = user.name;
+        $rootScope.user.surname = user.surname;
+    }
+    
+    
+}]);
+    

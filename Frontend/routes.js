@@ -7,7 +7,7 @@ MeanApp.config( function($routeProvider) {
     
             .when('/',{
                 templateUrl: 'pages/home.html',
-                controller: 'HomeController'
+                controller: 'UserController'
             })
     
             .when('/login',{
@@ -17,6 +17,11 @@ MeanApp.config( function($routeProvider) {
 
             .when('/register',{
                 templateUrl: 'pages/register.html',
+                controller: 'UserController'
+            })
+
+            .when('/logout',{
+                templateUrl: 'pages/logout.html',
                 controller: 'UserController'
             })
     

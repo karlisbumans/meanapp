@@ -6,14 +6,14 @@
                 </div>
     
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/login"><i class="fa fa-home"> Login </i> </a></li>
-                    <li><a href="#/thirdpage"><i class="fa fa-home"> Logout </i> </a></li>
+                    <li ng-if="!isUserLoggedIn"><a href="#/login"><i class="fa fa-home"> Login </i> </a></li>
+                    <li ng-if="isUserLoggedIn"><a href="#/logout"><i class="fa fa-home"> Logout </i> </a></li>
                    
                 </ul>
             </div>
         </nav>
 </header>
 
-<div class="fullContainer">
+<div class="fullCont">
         <h2> Welcome to workout log app </h2>
 </div>

@@ -1,5 +1,10 @@
 .fullContainer{
-    width: 100%;
+    width: 100%; 
+}
+
+.fullCont{
+    width: 100%; 
+    padding: 0 15px;
 }
 
 .smallContainer{
